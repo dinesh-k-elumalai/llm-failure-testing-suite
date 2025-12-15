@@ -1,0 +1,46 @@
+{
+  "name": "llm-failure-testing-suite",
+  "version": "1.0.0",
+  "description": "Production-grade failure testing suite for LLM applications",
+  "main": "dist/main.js",
+  "bin": {
+    "llm-test": "./dist/main.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/main.ts",
+    "test": "npm run build && node dist/main.js",
+    "test:critical": "npm run build && TEST_SUITE=critical node dist/main.js",
+    "test:smoke": "npm run build && TEST_SUITE=smoke node dist/main.js",
+    "clean": "rm -rf dist test-results",
+    "lint": "eslint src/**/*.ts"
+  },
+  "keywords": [
+    "llm",
+    "testing",
+    "ai",
+    "failure-testing",
+    "openai",
+    "anthropic",
+    "claude",
+    "gpt",
+    "quality-assurance"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "openai": "^4.47.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
+    "eslint": "^8.57.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
